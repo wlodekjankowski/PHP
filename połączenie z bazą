@@ -1,0 +1,27 @@
+<?php
+$conn=mysqli_connect('localhost','root','','zbyszek');
+if (!$conn)
+        {
+        exit("Błąd połączenia z serwerem");
+        }
+else  $query="SELECT id,tytul,tresc FROM artykul ";
+
+
+
+
+        $result=mysqli_query($conn,$query) or die('Błędne zapytanie');
+
+        while($row = mysqli_fetch_array($result))
+                {
+                echo "tablica  .". $row['id']."  ".$row['tytul']."  ".$row['id']."<br>";
+                }
+
+        $result=mysqli_query($conn,$query) or die('Błędne zapytanie');
+        while($row = mysqli_fetch_row($result))
+                {
+                echo "row  ".$row[0]."<br>  ".$row[1]."<br>  ".$row[2]."<br>";
+                }       
+
+        mysqli_close($conn);
+
+
